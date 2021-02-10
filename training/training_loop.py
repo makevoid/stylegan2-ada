@@ -73,7 +73,7 @@ def save_image_grid(images, filename, drange, grid_size):
     _N, C, H, W = images.shape
     images = images.reshape(gh, gw, C, H, W)
     images = images.transpose(0, 3, 1, 4, 2)
-    if C is 3:
+    if C == 3:
         images = images.reshape(gh * H, gw * W, C)
         PIL.Image.fromarray(images, 'RGB').save(filename)
     else:
