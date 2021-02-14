@@ -787,6 +787,8 @@ def pack(unpacked_dir, tfrecord_dir, num_train=None, num_validation=None, mirror
         with TFRecordExporter(tfrecord_dir, len(source_idx), tfr_prefix=tfr_prefix) as tfr:
             for mirror, idx in source_idx:
                 img = np.asarray(PIL.Image.open(make_png_path(unpacked_dir, idx)))
+                if(len(img.shape) == 2):
+                  img = np.expand_dims(img, axis=2)
                 img = img.transpose([2, 0, 1]) # HWC => CHW
                 if mirror != 0:
                     img = img[:, :, ::-1]
