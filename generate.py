@@ -38,7 +38,10 @@ def generate_images(network_pkl, seeds, truncation_psi, outdir, class_idx, dlate
         for i, img in enumerate(imgs):
             fname = f'{outdir}/dlatent{i:02d}.png'
             print (f'Saved {fname}')
-            PIL.Image.fromarray(img, 'RGB').save(fname)
+            if img.shape[-1] == 3:
+                PIL.Image.fromarray(img, 'RGB').save(fname)
+            else:
+                PIL.Image.fromarray(np.squeeze(img[0][:-2].cpu().numpy(), 'L').save(fname)
         return
 
     # Render images for dlatents initialized from random seeds.
