@@ -15,6 +15,12 @@ Edit docker-compose.yml with your username/reponame (requires dockerhub registry
 - Build the image: `docker-compose build`
 - Push to the registry: `docker-compose push`
 
+##### Use:
+
+Use your image `username/reponame` (e.g. `bob/stylegan2`) corresponding to your dockerhub image name for nvidia-docker.
+
+Have fun!
+
 
 ### Original Readme:
 
