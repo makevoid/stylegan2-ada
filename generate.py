@@ -41,7 +41,8 @@ def generate_images(network_pkl, seeds, truncation_psi, outdir, class_idx, dlate
             if img.shape[-1] == 3:
                 PIL.Image.fromarray(img, 'RGB').save(fname)
             else:
-                PIL.Image.fromarray(np.squeeze(img[:-2].cpu().numpy(), 'L').save(fname)
+                PIL.Image.fromarray(np.squeeze(img[:-2].cpu().numpy()), 'L').save(fname)
+        # ---
         return
 
     # Render images for dlatents initialized from random seeds.
@@ -67,7 +68,7 @@ def generate_images(network_pkl, seeds, truncation_psi, outdir, class_idx, dlate
         if images[0].shape[-1] == 3:
             PIL.Image.fromarray(images[0], 'RGB').save(f'{outdir}/seed{seed:04d}.png')
         else:
-            PIL.Image.fromarray(np.squeeze(images[0][:-2].cpu().numpy(), 'L').save(f'{outdir}/seed{seed:04d}.png')
+            PIL.Image.fromarray(np.squeeze(images[0][:-2]), 'L').save(f'{outdir}/seed{seed:04d}.png')
 
 #----------------------------------------------------------------------------
 

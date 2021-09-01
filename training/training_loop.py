@@ -78,7 +78,7 @@ def save_image_grid(images, filename, drange, grid_size):
         PIL.Image.fromarray(images, 'RGB').save(filename)
     else:
         images = images.reshape(gh * H, gw * W)
-        PIL.Image.fromarray(images, 'L').save(filename)        
+        PIL.Image.fromarray(images, 'L').save(filename)
 
 #----------------------------------------------------------------------------
 # Main training script.
@@ -99,14 +99,14 @@ def training_loop(
     minibatch_gpu           = 4,        # Number of samples processed at a time by one GPU.
     G_smoothing_kimg        = 10,       # Half-life of the exponential moving average (EMA) of generator weights.
     G_smoothing_rampup      = None,     # EMA ramp-up coefficient.
-    minibatch_repeats       = 4,        # Number of minibatches to run in the inner loop.
+    minibatch_repeats       = 1,        # Number of minibatches to run in the inner loop.
     lazy_regularization     = True,     # Perform regularization as a separate training step?
     G_reg_interval          = 4,        # How often the perform regularization for G? Ignored if lazy_regularization=False.
     D_reg_interval          = 16,       # How often the perform regularization for D? Ignored if lazy_regularization=False.
     total_kimg              = 25000,    # Total length of the training, measured in thousands of real images.
     kimg_per_tick           = 4,        # Progress snapshot interval.
-    image_snapshot_ticks    = 50,       # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
-    network_snapshot_ticks  = 50,       # How often to save network snapshots? None = only save 'networks-final.pkl'.
+    image_snapshot_ticks    = 5,        # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
+    network_snapshot_ticks  = 10,       # How often to save network snapshots? None = only save 'networks-final.pkl'.
     resume_pkl              = None,     # Network pickle to resume training from.
     abort_fn                = None,     # Callback function for determining whether to abort training.
     progress_fn             = None,     # Callback function for updating training progress.

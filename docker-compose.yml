@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  stylegan2:
+    image: makevoid/stylegan2
+    build:
+      context: .
