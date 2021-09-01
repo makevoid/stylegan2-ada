@@ -1,5 +1,24 @@
 ## StyleGAN2 with adaptive discriminator augmentation (ADA)<br>&mdash; Official TensorFlow implementation
 
+### This Fork:
+
+- updated Dockerfile
+- docker-compose.yml file to build and push your image
+
+#### Configure:
+
+Edit docker-compose.yml with your username/reponame (requires dockerhub registry account logged in (`docker login`) or an alternative registry)
+
+#### Run:
+
+- (optional) edit a configuration file to your liking (e.g. on `training/training_loop.py` tweak `kimg_per_tick`, `image_snapshot_ticks` or enable resume via `resume_pkl`)
+- Build the image: `docker-compose build`
+- Push to the registry: `docker-compose push`
+
+
+### Original Readme:
+
+
 ![Teaser image](./docs/stylegan2-ada-teaser-1024x252.png)
 
 **Training Generative Adversarial Networks with Limited Data**<br>
