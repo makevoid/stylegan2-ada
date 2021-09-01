@@ -107,7 +107,10 @@ def training_loop(
     kimg_per_tick           = 4,        # Progress snapshot interval.
     image_snapshot_ticks    = 5,        # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
     network_snapshot_ticks  = 10,       # How often to save network snapshots? None = only save 'networks-final.pkl'.
-    resume_pkl              = None,     # Network pickle to resume training from.
+    # TODO: extract as argument
+    resume_pkl              = None, # NOTE: do not resume
+    # NOTE: resume from a previous pkl file
+    # resume_pkl              = "/home/stylegan2-ada/data/data/00002-images_tf-stylegan2-gamma4-kimg1000-ada-bgc/network-snapshot-001000.pkl",     # Network pickle to resume training from.
     abort_fn                = None,     # Callback function for determining whether to abort training.
     progress_fn             = None,     # Callback function for updating training progress.
 ):
