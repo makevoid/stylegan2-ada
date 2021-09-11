@@ -82,7 +82,7 @@ def setup_training_options(
     args.num_gpus = gpus
 
     if snap is None:
-        snap = 50
+        snap = 3
     assert isinstance(snap, int)
     if snap < 1:
         raise UserError('--snap must be at least 1')
@@ -184,6 +184,13 @@ def setup_training_options(
     args.total_kimg = spec.kimg
     args.minibatch_size = spec.mb
     args.minibatch_gpu = spec.mb // spec.ref_gpus
+
+    # override
+    args.minibatch_size = 128
+    args.minibatch_gpu = 16
+    # args.minibatch_size = 32
+    # args.minibatch_gpu = 4
+
     args.D_args.mbstd_group_size = spec.mbstd
     args.G_args.fmap_base = args.D_args.fmap_base = int(spec.fmaps * 16384)
     args.G_args.fmap_max = args.D_args.fmap_max = 512

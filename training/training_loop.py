@@ -95,8 +95,10 @@ def training_loop(
     augment_args            = {},       # Options for adaptive augmentations.
     metric_arg_list         = [],       # Metrics to evaluate during training.
     num_gpus                = 1,        # Number of GPUs to use.
-    minibatch_size          = 32,       # Global minibatch size.
-    minibatch_gpu           = 4,        # Number of samples processed at a time by one GPU.
+    minibatch_size          = 128,       # Global minibatch size.
+    minibatch_gpu           = 16,        # Number of samples processed at a time by one GPU.
+    # minibatch_size          = 32,       # Global minibatch size.
+    # minibatch_gpu           = 4,        # Number of samples processed at a time by one GPU.
     G_smoothing_kimg        = 10,       # Half-life of the exponential moving average (EMA) of generator weights.
     G_smoothing_rampup      = None,     # EMA ramp-up coefficient.
     minibatch_repeats       = 1,        # Number of minibatches to run in the inner loop.
