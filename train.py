@@ -82,6 +82,7 @@ def setup_training_options(
     args.num_gpus = gpus
 
     # one tick is ~5m - generate a fakes png image every ~10m
+    # NOTE: use snap=1 and network_snapshot_ticks=1 for transfer learning
     if snap is None:
         snap = 2
     assert isinstance(snap, int)
