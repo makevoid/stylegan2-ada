@@ -81,13 +81,14 @@ def setup_training_options(
         raise UserError('--gpus must be a power of two')
     args.num_gpus = gpus
 
+    # one tick is ~5m - generate a fakes png image every ~10m
     if snap is None:
-        snap = 3
+        snap = 2
     assert isinstance(snap, int)
     if snap < 1:
         raise UserError('--snap must be at least 1')
     args.image_snapshot_ticks = snap
-    args.network_snapshot_ticks = snap
+    args.network_snapshot_ticks = snap*2 # generate a pkl every ~20m
 
     # -----------------------------------
     # Training dataset: data, res, mirror
