@@ -188,8 +188,10 @@ def setup_training_options(
     args.minibatch_gpu = spec.mb // spec.ref_gpus
 
     # override
-    args.minibatch_size = 128
-    args.minibatch_gpu = 16
+    # args.minibatch_size = 128
+    # args.minibatch_gpu = 16
+    args.minibatch_size = 64
+    args.minibatch_gpu = 8
     # args.minibatch_size = 32
     # args.minibatch_gpu = 4
 
