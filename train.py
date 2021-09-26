@@ -190,10 +190,10 @@ def setup_training_options(
     # override
     # args.minibatch_size = 128
     # args.minibatch_gpu = 16
-    args.minibatch_size = 64
-    args.minibatch_gpu = 8
-    # args.minibatch_size = 32
-    # args.minibatch_gpu = 4
+    # args.minibatch_size = 64
+    # args.minibatch_gpu = 8
+    args.minibatch_size = 32
+    args.minibatch_gpu = 4
 
     args.D_args.mbstd_group_size = spec.mbstd
     args.G_args.fmap_base = args.D_args.fmap_base = int(spec.fmaps * 16384)

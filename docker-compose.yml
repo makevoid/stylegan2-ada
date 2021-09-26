@@ -2,6 +2,7 @@ version: "3"
 
 services:
   stylegan2:
-    image: makevoid/stylegan2:latest
+    # image: makevoid/stylegan2:latest
+    image: makevoid/stylegan2:resume1
     build:
       context: .

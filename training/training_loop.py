@@ -106,13 +106,16 @@ def training_loop(
     G_reg_interval          = 4,        # How often the perform regularization for G? Ignored if lazy_regularization=False.
     D_reg_interval          = 16,       # How often the perform regularization for D? Ignored if lazy_regularization=False.
     total_kimg              = 25000,    # Total length of the training, measured in thousands of real images.
-    kimg_per_tick           = 4,        # Progress snapshot interval.
+    # kimg_per_tick           = 4,        # Progress snapshot interval.
+    kimg_per_tick           = 3,        # Progress snapshot interval.
+    # kimg_per_tick           = 1,        # Progress snapshot interval.
     image_snapshot_ticks    = 1,        # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
-    network_snapshot_ticks  = 4,        # How often to save network snapshots? None = only save 'networks-final.pkl'.
+    # network_snapshot_ticks  = 3,        # How often to save network snapshots? None = only save 'networks-final.pkl'.
     # TODO: extract as argument
-    resume_pkl              = None, # NOTE: do not resume
+    network_snapshot_ticks  = 1,        # use this if you resume
+    # resume_pkl              = None, # NOTE: do not resume
     # NOTE: resume from a previous pkl file
-    # resume_pkl              = "/home/stylegan2-ada/data/data/00002-images_tf-stylegan2-gamma4-kimg1000-ada-bgc/network-snapshot-001000.pkl",     # Network pickle to resume training from.
+    resume_pkl              = "/home/stylegan2-ada/data/data/models/stylegan2-ffhq-config-f.pkl",     # Network pickle to resume training from.
     abort_fn                = None,     # Callback function for determining whether to abort training.
     progress_fn             = None,     # Callback function for updating training progress.
 ):
