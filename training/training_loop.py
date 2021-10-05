@@ -95,10 +95,10 @@ def training_loop(
     augment_args            = {},       # Options for adaptive augmentations.
     metric_arg_list         = [],       # Metrics to evaluate during training.
     num_gpus                = 1,        # Number of GPUs to use.
-    minibatch_size          = 128,       # Global minibatch size.
-    minibatch_gpu           = 16,        # Number of samples processed at a time by one GPU.
-    # minibatch_size          = 32,       # Global minibatch size.
-    # minibatch_gpu           = 4,        # Number of samples processed at a time by one GPU.
+    # minibatch_size          = 64,       # Global minibatch size.
+    # minibatch_gpu           = 8,        # Number of samples processed at a time by one GPU.
+    minibatch_size          = 32,       # Global minibatch size.
+    minibatch_gpu           = 4,        # Number of samples processed at a time by one GPU.
     G_smoothing_kimg        = 10,       # Half-life of the exponential moving average (EMA) of generator weights.
     G_smoothing_rampup      = None,     # EMA ramp-up coefficient.
     minibatch_repeats       = 1,        # Number of minibatches to run in the inner loop.
@@ -107,7 +107,7 @@ def training_loop(
     D_reg_interval          = 16,       # How often the perform regularization for D? Ignored if lazy_regularization=False.
     total_kimg              = 25000,    # Total length of the training, measured in thousands of real images.
     # kimg_per_tick           = 4,        # Progress snapshot interval.
-    kimg_per_tick           = 3,        # Progress snapshot interval.
+    kimg_per_tick           = 4,        # Progress snapshot interval.
     # kimg_per_tick           = 1,        # Progress snapshot interval.
     image_snapshot_ticks    = 1,        # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
     # network_snapshot_ticks  = 3,        # How often to save network snapshots? None = only save 'networks-final.pkl'.
