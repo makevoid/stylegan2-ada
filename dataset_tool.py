@@ -163,6 +163,8 @@ class HDF5Exporter:
             print('Added %d images.' % self.cur_images)
 
     def add_image(self, img):
+        # NOTE: FIX FOR RESHAPE - remove to train any dataset
+        # img = img.reshape(1, 1, 512, 1)
         self.add_images(np.stack([img]))
 
     def add_images(self, img):
