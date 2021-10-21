@@ -107,7 +107,7 @@ def training_loop(
     D_reg_interval          = 16,       # How often the perform regularization for D? Ignored if lazy_regularization=False.
     total_kimg              = 25000,    # Total length of the training, measured in thousands of real images.
     # kimg_per_tick           = 4,        # Progress snapshot interval.
-    kimg_per_tick           = 4,        # Progress snapshot interval.
+    kimg_per_tick           = 2,        # Progress snapshot interval.
     # kimg_per_tick           = 1,        # Progress snapshot interval.
     image_snapshot_ticks    = 1,        # How often to save image snapshots? None = only save 'reals.png' and 'fakes-init.png'.
     # network_snapshot_ticks  = 3,        # How often to save network snapshots? None = only save 'networks-final.pkl'.
@@ -128,6 +128,12 @@ def training_loop(
     print('Label shape:', [training_set.label_size])
     print()
 
+    print("extra info:")
+    print("----")
+    mkv_graph = tf.get_default_graph()
+    print(mkv_graph)
+    print("----")
+
     print('Constructing networks...')
     with tf.device('/gpu:0'):
         G = tflib.Network('G', num_channels=training_set.shape[0], resolution=training_set.shape[1], label_size=training_set.label_size, **G_args)
@@ -137,6 +143,10 @@ def training_loop(
             print(f'Resuming from "{resume_pkl}"')
             with dnnlib.util.open_url(resume_pkl) as f:
                 rG, rD, rGs = pickle.load(f)
+            print("Images shape:")
+            print(G)
+            print("Model shape:")
+            print(rG)
             G.copy_vars_from(rG)
             D.copy_vars_from(rD)
             Gs.copy_vars_from(rGs)
